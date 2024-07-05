@@ -11,7 +11,7 @@ namespace BankLine_API.Models
         private string? nome;
         private Conta? conta;
 
-        // props públicas que  encapsulam os campos setados privados
+        // props públicas que encapsulam os campos setados privados
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("correntista_id")]
@@ -45,10 +45,15 @@ namespace BankLine_API.Models
         [Column("conta_numero_fk")]
         public long ContaNumero { get; set; }
 
-        // métodos getters para acessar os campos privados
+        // métodos públicos para acessar os campos privados
         public int GetId()
         {
             return id;
+        }
+
+        public void SetId(int id)
+        {
+            this.id = id;
         }
 
         public string? GetCpf()
@@ -56,14 +61,29 @@ namespace BankLine_API.Models
             return cpf;
         }
 
+        public void SetCpf(string? cpf)
+        {
+            this.cpf = cpf;
+        }
+
         public string? GetNome()
         {
             return nome;
         }
 
+        public void SetNome(string? nome)
+        {
+            this.nome = nome;
+        }
+
         public Conta? GetConta()
         {
             return conta;
+        }
+
+        public void SetConta(Conta? conta)
+        {
+            this.conta = conta;
         }
     }
 }

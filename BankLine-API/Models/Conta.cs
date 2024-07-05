@@ -24,15 +24,25 @@ namespace BankLine_API.Models
             set { saldo = value; }
         }
 
-        // métodos getters para acessar os campos privados
-        public long getNumero()
+        // métodos públicos para acessar os campos privados
+        public long GetNumero()
         {
-            return numero;
+            return this.numero;
         }
 
-        public double getSaldo() 
+        public void SetNumero(long numero)
         {
-            return saldo;
+            this.numero = numero;
+        }
+
+        public double GetSaldo()
+        {
+            return this.saldo;
+        }
+
+        public void SetSaldo(double saldo)
+        {
+            this.saldo = saldo;
         }
     }
 }

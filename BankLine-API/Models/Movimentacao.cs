@@ -11,8 +11,9 @@ namespace BankLine_API.Models
         private string? descricao;
         private int valor;
         private MovimentacaoTipo tipo;
+        private int idConta;
 
-        // props públicas que  encapsulam os campos setados privados
+        // props públicas que encapsulam os campos setados privados
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("movimentacao_id")]
@@ -50,30 +51,65 @@ namespace BankLine_API.Models
             set { tipo = value; }
         }
 
-        // métodos getters para acessar os campos privados
-        public int getId(int id) 
+        // métodos públicos para acessar os campos privados
+        public int GetId()
         {
             return id;
         }
 
-        public DateTime getDataHora(DateTime dataHora)
+        public void SetId(int id)
+        {
+            this.id = id;
+        }
+
+        public DateTime GetDataHora()
         {
             return dataHora;
         }
 
-        public string? getDescricao(string descricao)
+        public void SetDataHora(DateTime dataHora)
+        {
+            this.dataHora = dataHora;
+        }
+
+        public string? GetDescricao()
         {
             return descricao;
         }
 
-        public int getValor(int valor)
+        public void SetDescricao(string? descricao)
+        {
+            this.descricao = descricao;
+        }
+
+        public int GetValor()
         {
             return valor;
         }
 
-        public MovimentacaoTipo getTipo(MovimentacaoTipo tipo)
+        public void SetValor(int valor)
+        {
+            this.valor = valor;
+        }
+
+        public MovimentacaoTipo GetTipo()
         {
             return tipo;
+        }
+
+        public void SetTipo(MovimentacaoTipo tipo)
+        {
+            this.tipo = tipo;
+        }
+
+        public int GetIdConta()
+        {
+            return idConta;
+        }
+
+        public void SetIdConta(int idConta)
+        {
+            this.idConta = idConta;
         }
     }
 }
