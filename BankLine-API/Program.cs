@@ -1,15 +1,21 @@
 using BankLine_API.Data;
+using BankLine_API.Repository.Correntistas;
 using Microsoft.EntityFrameworkCore;
+using BankLine_API.Repository.Correntistas;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddScoped<ICorrentistaService, CorrentistaService>();
+
 // Connection String
 builder.Services.AddDbContext<BankLineDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("BankLineCS")));
 
+builder.Services.AddScoped<ICorrentistaRepository, CorrentistaRepository>();
+builder.Services.AddScoped<ICorrentistaService, CorrentistaService>();
+
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
